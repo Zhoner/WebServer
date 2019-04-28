@@ -1,0 +1,66 @@
+./a.out DBNAME
+
+crea un database nella cartella corrente
+
+es. ./a.out mydb.db 
+-----------------------------------
+sqlite>.databases 
+
+mostra tutti i database aperti
+------------------------------------
+
+sqlite3> DBNAME.db .dump > DBNAME.sql
+
+-> trasforma in un file txt con i comandi sql
+
+sqlite3> DBNAME.db < DBNAME.sql
+
+->riprestina il database.
+
+------------------------------------
+
+ATTACH DATABASE 'DatabaseName' As 'Alias-Name';
+
+-> decide quale database utilizzare.
+
+DETACH DATABASE 'Alias-Name';
+
+-> decide quale database da togliere
+------------------------------------
+sqlite>.tables 
+----------------------------------
+sqlite>.schema COMPANY
+----------------------------------
+sqlite> DROP TABLE database_name.table_name;
+------------------------------------
+INSERT INTO TABLE_NAME [(column1, column2, column3,...columnN)]  
+VALUES (value1, value2, value3,...valueN);
+--------------------------------------
+INSERT INTO first_table_name [(column1, column2, ... columnN)] 
+   SELECT column1, column2, ...columnN 
+   FROM second_table_name
+   [WHERE condition];
+
+INSERT INTO TABLE_NAME VALUES (value1,value2,value3,...valueN);
+--------------------------------------
+sqlite> SELECT ID, NAME, SALARY FROM COMPANY;
+--------------------------------------
+sqlite>.width 10, 20, 10
+#mostra le colonne
+sqlite>.header on 
+sqlite>.mode column
+--------------------------------------
+UPDATE table_name
+SET column1 = value1, column2 = value2...., columnN = valueN
+WHERE [condition];
+----------------------------------------
+DELETE FROM table_name
+WHERE [condition];
+------------------------------------------
+CREATE TABLE track(
+  trackid     INTEGER, 
+  trackname   TEXT, 
+  trackartist INTEGER,
+  FOREIGN KEY(trackartist) REFERENCES artist(artistid)
+);
+-------------------------------------------

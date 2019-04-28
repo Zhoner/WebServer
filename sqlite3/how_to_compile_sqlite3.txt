@@ -1,0 +1,10 @@
+gcc shell.c sqlite3.c -lpthread -ldl
+
+al posto di shell.c mettere il programma client
+dentro shell.c DEVE ESSERCI l'include a "sqlite3.h"
+
+creare il file oggetto:
+gcc  -c sqlite3.c
+
+gcc shell.c sqlite3.o -lpthread -ldl 
+-> stessa cosa della prima righa 
